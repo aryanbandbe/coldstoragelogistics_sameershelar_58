@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Storage Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container" id="loginSection">
+        <h1>Industrial Storage Management</h1>
+        <div class="login-box">
+            <h2>Login</h2>
+            <div class="toggle-container">
+                <input type="radio" id="adminToggle" name="userType" value="admin" checked>
+                <label for="adminToggle">Admin</label>
+                <input type="radio" id="userToggle" name="userType" value="user">
+                <label for="userToggle">User</label>
+            </div>
+            <input type="text" placeholder="Username" id="username">
+            <input type="password" placeholder="Password" id="password">
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <div class="dashboard-container" id="adminDashboard" style="display: none;">
+        <nav>
+            <h2>Admin Dashboard</h2>
+            <button onclick="logout()">Logout</button>
+        </nav>
+        <div class="options">
+            <button onclick="showPickupRequests()">Request for Pickups</button>
+            <button onclick="showStorageMonitoring()">Cold Storage Monitoring</button>
+        </div>
+        <div id="pickupTable" style="display: none;">
+            <h3>Pickup Requests</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Temperature (°C)</th>
+                        <th>Capacity (kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Warehouse A</td>
+                        <td>-18°C</td>
+                        <td>5000</td>
+                    </tr>
+                    <tr>
+                        <td>Warehouse B</td>
+                        <td>-20°C</td>
+                        <td>3500</td>
+                    </tr>
+                    <tr>
+                        <td>Warehouse C</td>
+                        <td>-15°C</td>
+                        <td>4200</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="storageMonitoring" style="display: none;">
+            <h3>Cold Storage Monitoring</h3>
+            <div class="storage-grid">
+                <div class="storage-info">
+                    <h4>Storage Overview</h4>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <span class="card-title">Total Compartments</span>
+                            <span class="card-value">12</span>
+                        </div>
+                        <div class="info-card">
+                            <span class="card-title">Occupied</span>
+                            <span class="card-value">8</span>
+                        </div>
+                        <div class="info-card">
+                            <span class="card-title">Available</span>
+                            <span class="card-value">4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="compartment-grid">
+                    <h4>Compartment Status</h4>
+                    <div class="grid-container">
+                        <div class="compartment occupied">
+                            <h5>Compartment A1</h5>
+                            <p>Customer: Fresh Foods Inc.</p>
+                            <p>Content: Frozen Vegetables</p>
+                            <p>Temperature: -18°C</p>
+                            <p>Capacity: 80% Full</p>
+                        </div>
+                        <div class="compartment occupied">
+                            <h5>Compartment A2</h5>
+                            <p>Customer: Meat Masters</p>
+                            <p>Content: Premium Beef</p>
+                            <p>Temperature: -20°C</p>
+                            <p>Capacity: 95% Full</p>
+                        </div>
+                        <div class="compartment available">
+                            <h5>Compartment A3</h5>
+                            <p>Status: Available</p>
+                            <p>Temperature: -15°C</p>
+                        </div>
+                        <div class="compartment occupied">
+                            <h5>Compartment B1</h5>
+                            <p>Customer: Sea Foods Co.</p>
+                            <p>Content: Frozen Fish</p>
+                            <p>Temperature: -22°C</p>
+                            <p>Capacity: 60% Full</p>
+                        </div>
+                        <div class="compartment occupied">
+                            <h5>Compartment B2</h5>
+                            <p>Customer: Dairy Plus</p>
+                            <p>Content: Ice Cream</p>
+                            <p>Temperature: -25°C</p>
+                            <p>Capacity: 75% Full</p>
+                        </div>
+                        <div class="compartment available">
+                            <h5>Compartment B3</h5>
+                            <p>Status: Available</p>
+                            <p>Temperature: -15°C</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html> 
