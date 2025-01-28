@@ -8,14 +8,14 @@
 </head>
 <body>
     <div class="login-container" id="loginSection">
-        <h1>Industrial Storage Management</h1>
+        <h1>Cold Storage Management</h1>
         <div class="login-box">
             <h2>Login</h2>
             <div class="toggle-container">
                 <input type="radio" id="adminToggle" name="userType" value="admin" checked>
-                <label for="adminToggle">Admin</label>
+                <label for="adminToggle">Cold Storage Admin</label>
                 <input type="radio" id="userToggle" name="userType" value="user">
-                <label for="userToggle">User</label>
+                <label for="userToggle">Customer</label>
             </div>
             <input type="text" placeholder="Username" id="username">
             <input type="password" placeholder="Password" id="password">
@@ -125,6 +125,57 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-container" id="userDashboard" style="display: none;">
+        <nav>
+            <h2>Customer Dashboard</h2>
+            <button onclick="logout()">Logout</button>
+        </nav>
+        
+        <div class="storage-finder">
+            <div class="map-section">
+                <h3>Find Nearby Cold Storages</h3>
+                <div class="map-container">
+                    <img src="https://i.imgur.com/HvD8LUj.png" alt="Map of Cold Storages" id="map">
+                    <!-- This is a dummy map image showing Bangalore with markers -->
+                </div>
+            </div>
+            <div class="storage-list">
+                <h3>Nearby Cold Storages</h3>
+                <div id="storageCards"></div>
+            </div>
+        </div>
+
+        <div id="storageDetails" class="storage-details" style="display: none;">
+            <h4>Selected Storage Details</h4>
+            <div class="storage-info-header">
+                <span id="storageName">Storage Name</span>
+                <span id="storageDistance">Distance: 0.0 km</span>
+            </div>
+            <div class="available-compartments">
+                <h5>Available Compartments</h5>
+                <div class="compartment-list" id="compartmentList"></div>
+            </div>
+            <div class="request-form" id="requestForm" style="display: none;">
+                <h5>Send Storage Request</h5>
+                <form onsubmit="submitRequest(event)">
+                    <div class="form-group">
+                        <label>Selected Compartment</label>
+                        <input type="text" id="selectedCompartment" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Required Capacity (kg)</label>
+                        <input type="number" id="requestCapacity" required min="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Storage Duration (days)</label>
+                        <input type="number" id="storageDuration" required min="1">
+                    </div>
+                    <button type="submit">Send Request</button>
+                </form>
             </div>
         </div>
     </div>
